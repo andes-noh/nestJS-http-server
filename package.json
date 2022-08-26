@@ -1,11 +1,11 @@
 {
-  "name": "Nest-Sample",
+  "name": "Nest-Http-Server-Sample",
   "private": true,
   "version": "1.0.0",
   "description": "Nest Sample Project",
   "license": "MIT",
-  "bin": "lib/index.js",
-  "main": "lib/",
+  "bin": "src/index.js",
+  "main": "src/",
   "scripts": {
     "build": "tsc --build --force",
     "debug": "ts-node-dev --respawn --prefer-ts-exts lib/",
