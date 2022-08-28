@@ -1,12 +1,16 @@
 import { Injectable } from '@nestjs/common'
-import { Cron, CronExpression } from '@nestjs/schedule'
+import { POSTDTO } from './test.dto'
 
 @Injectable()
 export class TestService {
-  @Cron(CronExpression.EVERY_SECOND)
-  async ConsoleTime() {
-    // console.log(time)
-    const time = new Date().toISOString()
-    console.log(time)
+  constructor() {
+    //
+  }
+
+  async postTest(params: POSTDTO) {
+    const returnData = {
+      test_data: `params value is ${params.data} and post test`,
+    }
+    return returnData
   }
 }

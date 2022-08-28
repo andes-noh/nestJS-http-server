@@ -1,3 +1,4 @@
+import { Testcontroller } from './test.controller'
 /*
 https://docs.nestjs.com/modules
 */
@@ -7,7 +8,7 @@ import { ConfigModule } from '@nestjs/config'
 
 @Module({
   imports: [ConfigModule],
-  controllers: [],
+  controllers: [Testcontroller],
   providers: [TestService],
 })
 export class TestModule {}
