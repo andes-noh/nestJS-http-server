@@ -8,7 +8,7 @@
   "main": "src/",
   "scripts": {
     "build": "tsc --build --force",
-    "debug": "ts-node-dev --respawn --prefer-ts-exts lib/",
+    "debug": "ts-node-dev --respawn --prefer-ts-exts src/",
     "pkg": "pkg . --targets node16-alpine-x64 --output dist/app"
   },
   "dependencies": {
@@ -21,7 +21,7 @@
     "@nestjs/swagger": "6.0.5",
     "@nestjs/websockets": "9.0.11",
     "fastify": "^4.5.2",
-    "fastify-swagger": "^5.2.0",
+    "fastify-swagger": "npm:@fastify/swagger",
     "@nestjs/schedule": "^2.1.0",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
