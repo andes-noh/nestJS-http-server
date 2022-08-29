@@ -27,7 +27,7 @@ RUN adduser -S nodejs -u 1001
 
 USER nodejs
 
-COPY --from=build --chown=nodejs:nodejs /build/lib ./lib
+COPY --from=build --chown=nodejs:nodejs /build/src ./src
 COPY --from=deps --chown=nodejs:nodejs /build/node_modules ./node_modules
 COPY --chown=nodejs:nodejs package.json ./package.json
 
