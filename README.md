@@ -24,3 +24,9 @@
 
 - get, post 구현
 - delete, patch 구현 예정
+
+## 5.CI/CD pipeline 구축 (with argocd)
+
+- Link: [Argo CD][argocd]
+
+[argocd]: https://argo-cd.readthedocs.io/en/stable/ 'Go Argo'
