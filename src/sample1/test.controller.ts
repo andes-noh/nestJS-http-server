@@ -13,16 +13,16 @@ import { TestTable } from './test.entity'
 export class Testcontroller {
   //
   constructor(private readonly service: TestService) {}
-  @Post()
-  @ApiOperation({
-    description: 'sample post 요청 테스트',
-  })
-  @ApiResponse({ type: TESTDTO })
-  @ApiBody({ type: POSTDTO })
-  async postSample(@Body() body: POSTDTO): Promise<TESTDTO> {
-    //
-    return this.service.postTest(body)
-  }
+  // @Post()
+  // @ApiOperation({
+  //   description: 'sample post 요청 테스트',
+  // })
+  // @ApiResponse({ type: TESTDTO })
+  // @ApiBody({ type: POSTDTO })
+  // async postSample(@Body() body: POSTDTO): Promise<TESTDTO> {
+  //   //
+  //   return this.service.postTest(body)
+  // }
 
   @Get()
   @ApiOperation({
@@ -31,5 +31,15 @@ export class Testcontroller {
   @ApiResponse({ type: TestTable })
   async findAll() {
     return this.service.findAll()
+  }
+
+  @Post()
+  @ApiOperation({
+    description: 'test table 데이터 저장',
+  })
+  @ApiBody({ type: TestTable })
+  async insert(@Body() body: TestTable) {
+    //
+    this.service.insert(body)
   }
 }

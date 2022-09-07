@@ -15,6 +15,12 @@ export class TestService {
     return await this.repository.find()
   }
 
+  async insert(params: TestTable) {
+    //
+    const entity = this.repository.create(params)
+    await this.repository.save(entity, { reload: true })
+  }
+
   async postTest(params: POSTDTO) {
     const returnData = {
       test_data: `params value is ${params.data} and post test`,
