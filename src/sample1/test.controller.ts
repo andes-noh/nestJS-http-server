@@ -2,10 +2,11 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Post } from '@nestjs/common'
+import { Body, Controller, Get, Post } from '@nestjs/common'
 import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { TestService } from './test.service'
 import { TESTDTO, POSTDTO } from './test.dto'
+import { TestTable } from './test.entity'
 
 @ApiTags('sample 관련 docs')
 @Controller('sample')
@@ -21,5 +22,14 @@ export class Testcontroller {
   async postSample(@Body() body: POSTDTO): Promise<TESTDTO> {
     //
     return this.service.postTest(body)
+  }
+
+  @Get()
+  @ApiOperation({
+    description: 'test table get 요청 테스트',
+  })
+  @ApiResponse({ type: TestTable })
+  async findAll() {
+    return this.service.findAll()
   }
 }
