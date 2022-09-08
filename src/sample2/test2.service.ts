@@ -12,14 +12,30 @@ export class Test2Service {
     //
   }
 
+  // Read
   async findAll() {
     return await this.repository.find()
   }
 
+  // Creae
   async insert(params: Test2Table) {
     //
     const entity = this.repository.create(params)
     await this.repository.save(entity, { reload: true })
+  }
+
+  // Update
+  async update(id: number, params: Test2Table) {
+    //
+    const entity = await this.repository.findOneByOrFail({ id })
+    Object.assign(entity, params)
+    await this.repository.save(entity)
+  }
+
+  // Delete
+  async delete(id: number) {
+    //
+    await this.repository.delete({ id })
   }
 
   async getTest() {

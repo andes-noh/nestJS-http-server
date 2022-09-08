@@ -11,14 +11,30 @@ export class TestService {
     private readonly repository: Repository<TestTable>
   ) {}
 
+  // Read
   async findAll() {
     return await this.repository.find()
   }
 
+  // Create
   async insert(params: TestTable) {
     //
     const entity = this.repository.create(params)
     await this.repository.save(entity, { reload: true })
+  }
+
+  // Update
+  async update(id: number, params: TestTable) {
+    //
+    const entity = await this.repository.findOneByOrFail({ id })
+    Object.assign(entity, params)
+    await this.repository.save(entity)
+  }
+
+  // Delete
+  async delete(id: number) {
+    //
+    await this.repository.delete({ id })
   }
 
   async postTest(params: POSTDTO) {
