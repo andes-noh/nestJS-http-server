@@ -2,8 +2,8 @@
 https://docs.nestjs.com/controllers#controllers
 */
 
-import { Body, Controller, Get, Post } from '@nestjs/common'
-import { ApiBody, ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger'
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common'
+import { ApiBody, ApiOperation, ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger'
 import { TestService } from './test.service'
 import { TESTDTO, POSTDTO } from './test.dto'
 import { TestTable } from './test.entity'
@@ -41,5 +41,27 @@ export class Testcontroller {
   async insert(@Body() body: TestTable) {
     //
     this.service.insert(body)
+  }
+
+  @Patch(':id')
+  @ApiOperation({
+    description: 'test table 데이터 수정',
+  })
+  @ApiBody({ type: TestTable })
+  @ApiParam({ name: 'id' })
+  async update(@Param('id') id: number, @Body() body: TestTable) {
+    //
+    await this.service.update(id, body)
+  }
+
+  @Delete(':id')
+  @ApiOperation({
+    description: 'test table 데이터 삭제',
+  })
+  @ApiBody({ type: TestTable })
+  @ApiParam({ name: 'id' })
+  async delete(@Param('id') id: number) {
+    //
+    await this.service.delete(id)
   }
 }
