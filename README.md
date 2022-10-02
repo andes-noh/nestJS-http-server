@@ -1,32 +1,46 @@
-# NestJs-http-server Project(v0.1)
+# NestJs-http-server Project(v0.3)
 
-## 1.개요
 
-- yarn upgrade ts-node-dev@latest ts-node@latest 버전 업그레이드
-- fastify 적용
-- nestJS standalone application
-- swagger 작성 추가
-- 기본 포트 3000, .env 파일 통해 변경 가능
-- typeorm 기능 추가 예정(v0.2예정)
-- docker 관련 추가 예정(v0.3 or 추후)
+## Runtime
+- [Node JS](https://nodejs.org/ko/)
 
-## 2.실행
+## Framework
+- [NestJs](https://nestjs.com/)
 
-- yarn
-- yarn debug
+## 실행
+- npm install or yarn
+- package.json -> debug
+```
+"ts-node-dev --respawn --prefer-ts-exts lib/"
+```
+- ts-node-dev(ts 파일을 미리 컴파일하지 않고 바로 실행 시키는 엔진)
 
-## 3.swagger
+## 빌드
+- package.json -> build
+```
+tsc --build --force
+```
+- tsc --build(*.ts -> *.js)
+
+## 추가 라이브러리 및 프레임워크
+- fastify 
+- swagger
+- typeorm
+
+## swagger
 
 - `localhost:3000/swagger`
 - ./index.ts로 주소 변경 가능
 
-## 4.api
+## api
 
 - get, post 구현
-- delete, patch 구현 예정
+- delete, patch 구현 완료
 
-## 5.CI/CD pipeline 구축 (with argocd)
+## CI/CD pipeline 구축 (with argocd)
 
+- docker file 작성
 - Link: [Argo CD][argocd]
 
 [argocd]: https://argo-cd.readthedocs.io/en/stable/ 'Go Argo'
+
