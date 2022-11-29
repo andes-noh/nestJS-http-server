@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        GIT_URL = "https://github.com/andes-noh/CI-CD-TEST.git"
-        dockerHubRegistry = 'andesnoh/cicd_test'
+        GIT_URL = "https://github.com/andes-noh/nestJS-http-server.git"
+        // dockerHubRegistry = 'andesnoh/cicd_test'
         DOCKERHUB_CREDENTIALS = credentials('dockerhub-jenkins')
         // ==================== aws 관련 env ====================
         ECR_PATH='361848949410.dkr.ecr.ap-northeast-2.amazonaws.com'
@@ -125,18 +125,3 @@ pipeline {
         // }
     }
 }
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-CI-CD-TEST/Jenkinsfile at main · andes-noh/CI-CD-TEST · GitHub
